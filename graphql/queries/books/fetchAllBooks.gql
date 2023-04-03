@@ -1,0 +1,8 @@
+query fetchAllBooks {
+  book {
+    id
+    title
+    isbn
+    description
+  }
+}
