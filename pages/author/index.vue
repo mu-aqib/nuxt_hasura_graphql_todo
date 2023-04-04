@@ -3,9 +3,18 @@
     <v-col cols="12" class="py-10">
       <PageHeader title="Authors" />
     </v-col>
-    <v-col cols="12" sm="8" md="6" v-for="singleAuthor in authorBooks" :key="singleAuthor.id">
-      <v-card variant="outlined" class="pa-8">
+    <v-col cols="10">
+      <v-data-table
+        v-if="allAuthors"
+        :headers="headers"
+        :items="allAuthors"
+        :items-per-page="5"
+        class="elevation-1"
+      >
 
+      </v-data-table>
+      <!-- <v-card variant="outlined" class="pa-8">
+        
         <v-avatar>
             <v-img
                 :src="singleAuthor.img"
@@ -20,18 +29,21 @@
             view book
           </v-btn>
         </v-card-actions>
-      </v-card>
+      </v-card> -->
     </v-col>
   </v-row>
 </template>
 
 <script>
   import PageHeader from '@/components/utilities/PageHeader.vue';
+  import FETCH_ALL_AUTHORS from "~/graphql/queries/authors/fetchAllAuthors.gql";
+
   export default {
     name: 'InspirePage',
     components:{
-        PageHeader
+      PageHeader
     },
+
     data() {
       return {
         authorBooks: [{
@@ -44,9 +56,51 @@
             full_name: 'Waqas',
             img: 'https://cdn.vuetifyjs.com/images/john.jpg'
           }
-        ]
+        ],
+
+        headers: [
+        {
+          text: 'Id',
+          align: 'start',
+          sortable: false,
+          value: 'id',
+        },
+        {
+          text: 'Full Name',
+          sortable: false,
+          value: 'full_name',
+        },
+        {
+          text: 'Email Address',
+          sortable: false,
+          value: 'email',
+        },
+      ],
+      allAuthors: undefined,
       }
     },
+
+    methods: {
+      async fetchAllBooks() {
+        $nuxt.$apollo.query({
+            query: FETCH_ALL_AUTHORS,
+          })
+          .then(({ data }) => {
+            console.log(".... Data added ....")
+            console.log(data)
+            this.allAuthors = data.author
+          })
+          .catch((err) => {
+            console.log(".... Data not added ....")
+            console.log(err);
+          })
+      }
+    },
+
+    mounted() {
+      this.fetchAllBooks()
+    },
+
   }
 
 </script>

@@ -3,18 +3,21 @@
     "name": "author",
     "path": "/author",
     "component": "/Users/mac/Documents/Web /Nuxt/task/nuxt_hasura_graphql_todo/pages/author/index.vue",
-    "chunkName": "pages/author/index"
+    "chunkName": "pages/author/index",
+    "_name": "_1f09f881"
   },
   {
     "name": "books-id",
     "path": "/books/:id?",
     "component": "/Users/mac/Documents/Web /Nuxt/task/nuxt_hasura_graphql_todo/pages/books/_id.vue",
-    "chunkName": "pages/books/_id"
+    "chunkName": "pages/books/_id",
+    "_name": "_15ae8932"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/mac/Documents/Web /Nuxt/task/nuxt_hasura_graphql_todo/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_2411c92f"
   }
 ]

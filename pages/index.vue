@@ -10,7 +10,16 @@
         :items="allBooks"
         :items-per-page="5"
         class="elevation-1"
-      ></v-data-table>
+      >
+
+        <template v-slot:[`item.avatar`]="{ item }">
+          <v-avatar>
+            <img :src="item.avatar" alt="avatar" style="width: 40px; height: 40px;" />
+          </v-avatar>
+        </template>
+
+      </v-data-table>
+
     </v-col>
   </v-row>
 </template>
@@ -57,9 +66,13 @@ export default {
         },
         {
           text: 'Isbn',
-          align: 'center',
           sortable: false,
           value: 'isbn',
+        },
+        {
+          text: 'Image',
+          sortable: false,
+          value: 'avatar',
         },
       ],
       allBooks: undefined,

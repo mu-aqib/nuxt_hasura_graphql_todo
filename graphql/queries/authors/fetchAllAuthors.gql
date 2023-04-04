@@ -2,5 +2,6 @@ query fetchAllAuthors {
   author {
     id
     full_name
+    email
   }
 }

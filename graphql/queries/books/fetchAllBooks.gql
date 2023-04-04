@@ -3,5 +3,6 @@ query fetchAllBooks {
     id
     title
     isbn
+    avatar
   }
 }
