@@ -58,7 +58,7 @@ export default {
     // errorHandler: '~/plugins/apollo-error-handler.js',
     // required
     clientConfigs: {
-        default: '~/graphql/clientConfig.js'
+      default: '~/graphql/clientConfig.js'
     }
   },
 

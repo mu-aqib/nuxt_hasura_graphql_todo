@@ -1,0 +1,20 @@
+[
+  {
+    "name": "author",
+    "path": "/author",
+    "component": "/Users/mac/Documents/Web /Nuxt/task/nuxt_hasura_graphql_todo/pages/author/index.vue",
+    "chunkName": "pages/author/index"
+  },
+  {
+    "name": "books-id",
+    "path": "/books/:id?",
+    "component": "/Users/mac/Documents/Web /Nuxt/task/nuxt_hasura_graphql_todo/pages/books/_id.vue",
+    "chunkName": "pages/books/_id"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/mac/Documents/Web /Nuxt/task/nuxt_hasura_graphql_todo/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]

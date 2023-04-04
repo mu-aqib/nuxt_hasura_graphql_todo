@@ -3,8 +3,14 @@
     <v-col cols="12" class="py-10">
       <PageHeader title="Books" />
     </v-col>
-    <v-col cols="12" sm="8" md="6" v-for="singleBook in authorBooks" :key="singleBook.id">
-      <BaseCard class="pa-10" :singleData="singleBook" />
+    <v-col cols="12">
+      <v-data-table
+        v-if="allBooks"
+        :headers="headers"
+        :items="allBooks"
+        :items-per-page="5"
+        class="elevation-1"
+      ></v-data-table>
     </v-col>
   </v-row>
 </template>
@@ -13,7 +19,7 @@
 import BaseCard from '../components/utilities/BaseCard.vue';
 import PageHeader from '../components/utilities/PageHeader.vue';
 // Graph ql Queries
-import FETCH_ALL_BOOKS from "~/graphql/queries/authors/fetchAllAuthors.gql";
+import FETCH_ALL_BOOKS from "~/graphql/queries/books/fetchAllBooks.gql";
 
 export default {
   name: 'IndexPage',
@@ -35,7 +41,28 @@ export default {
           description: 'Hello,  Lorem ipsum dolor sit amet, consequat.',
           author_id: 1
         },
-      ]
+      ],
+
+      headers: [
+        {
+          text: 'Id',
+          align: 'start',
+          sortable: false,
+          value: 'id',
+        },
+        {
+          text: 'Title',
+          sortable: false,
+          value: 'title',
+        },
+        {
+          text: 'Isbn',
+          align: 'center',
+          sortable: false,
+          value: 'isbn',
+        },
+      ],
+      allBooks: undefined,
     }
   },
 
@@ -46,23 +73,18 @@ export default {
         })
         .then(({ data }) => {
           console.log(".... Data added ....")
-          console.log(data)
+          console.log(data.book)
+          this.allBooks = data.book
         })
         .catch((err) => {
           console.log(".... Data not added ....")
           console.log(err);
         })
-
-      // const data = await useAsyncQuery(FETCH_ALL_BOOKS);
-      console.log(data);
     }
   },
 
-  async mounted() {
+  mounted() {
     this.fetchAllBooks()
-
-    // const { data } = await useAsyncQuery(FETCH_ALL_BOOKS);
-    // console.log(data, "  datat .....")
   },  
 
   components: {

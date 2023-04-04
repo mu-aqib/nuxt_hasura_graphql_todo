@@ -1,0 +1,11 @@
+{
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "UtilitiesBaseCard": {
+    "description": "Auto imported from components/utilities/BaseCard.vue"
+  },
+  "UtilitiesPageHeader": {
+    "description": "Auto imported from components/utilities/PageHeader.vue"
+  }
+}

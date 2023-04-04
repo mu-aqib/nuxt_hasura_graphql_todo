@@ -27,11 +27,11 @@ export default (ctx) => {
   // Auth Middleware for Authorization Header
   const authMiddleware = new ApolloLink((operation, forward) => {
     // const token = process.server ? ctx.req.session : window.__NUXT__.state.session
-    const token = process.browser ? ctx.store.state.auth.idToken : ctx.req.session
-    const useTokenInRequestMiddleware = ctx.store.state.auth.useTokenInRequest;
+    const token = 'anonymous'
+    // const useTokenInRequestMiddleware = ctx.store.state.auth.useTokenInRequest;
 
     // token available and use is permitted
-    if (token && useTokenInRequestMiddleware) {
+    if (token) {
       operation.setContext({
         headers: {
           authorization: `Bearer ${token}`

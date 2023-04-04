@@ -3,6 +3,5 @@ query fetchAllBooks {
     id
     title
     isbn
-    description
   }
 }
