@@ -1,0 +1,20 @@
+mutation addNewBook(
+  $title: String!
+  $isbn: String!
+  $avatar: String!
+  $author_id: Int!
+) {
+  insert_book_one(
+    object: {
+      title: $title
+      isbn: $isbn
+      avatar: $avatar
+      author_id: $author_id
+    }
+  ) {
+    id
+    title
+    isbn
+    avatar
+  }
+}

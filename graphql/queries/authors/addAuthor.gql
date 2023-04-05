@@ -1,0 +1,7 @@
+mutation addNewAuthor($full_name: String!, $email: String!) {
+  insert_author_one(object: { full_name: $full_name, email: $email }) {
+    id
+    full_name
+    email
+  }
+}
